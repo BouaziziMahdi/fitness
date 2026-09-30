@@ -1,0 +1,8 @@
+{% extends "admin/base.html" %}
+{% load static %}
+{% block title %}{{ title }} | Forma · Administration{% endblock %}
+{% block dark-mode-vars %}{% endblock %}
+{% block responsive %}{{ block.super }}<link rel="stylesheet" href="{% static 'admin-forma.css' %}">{% endblock %}
+{% block branding %}<div id="site-name"><a class="forma-brand" href="{% url 'admin:index' %}"><span class="forma-icon">f</span> forma<span class="forma-dot">.</span></a><span class="forma-label">ADMINISTRATION</span></div>{% endblock %}
+{% block userlinks %}<a href="{% url 'dashboard' %}">Voir mon dashboard</a> / <a href="{% url 'admin:password_change' %}">Modifier le mot de passe</a> / <form id="logout-form" method="post" action="{% url 'admin:logout' %}">{% csrf_token %}<button type="submit">Se déconnecter</button></form>{% endblock %}
+{% block footer %}<span>Forma · Votre espace d’administration.</span>{% endblock %}
